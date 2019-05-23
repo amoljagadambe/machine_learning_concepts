@@ -66,11 +66,13 @@ def d3(n):
 n = [18, 27, 50, 5, 7]
 s = time.time()
 
-d2(n)
-d3(n)
-
+t1 = Thread(target=d2, args=(n,))
+t2 = Thread(target=d3, args=(n,))
+t1.start()
+t2.start()
 end = time.time()
 print("Total time Taken:", end - s)
 
 
 # Time Taken Without threads Total time Taken: 0.002587
+#Time Taken threads Total time Taken:0.0009999275207519531
