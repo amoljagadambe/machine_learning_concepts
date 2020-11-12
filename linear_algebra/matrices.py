@@ -54,3 +54,19 @@ Output:
  [[1.  1. ]
   [1.  1. ]]]
 """
+
+# Matrix Transpose
+
+array = np.arange(6).reshape((2, 3))
+"""
+Output:
+[[0 1 2]
+ [3 4 5]]
+"""
+array = array.transpose()
+"""
+Output:
+[[0 3]
+ [1 4]
+ [2 5]]
+"""
