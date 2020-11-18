@@ -25,7 +25,7 @@ a colormap.
 """
 
 # Make a Color plot to display the data
-plt.figure(figsize=(14,12))
+plt.figure(figsize=(14, 12))
 plt.pcolor(xv, yv, z)
 plt.title('2D Color Plot of f(x,y)=xy^2')
 plt.colorbar()
@@ -38,15 +38,29 @@ x = np.linspace(0, 10, nx)
 y = np.linspace(0, 10, ny)
 xg, yg = np.meshgrid(x, y)
 
+
 # calculate the gradient of f(x,y)
 # Note: numpy returns answer in rows (y), columns (x) format
-Gy, Gx = np.gradient(f(xg, yg))
+# Gy, Gx = np.gradient(f(xg, yg))
+
+# calculate the gradient by formula for f(x, y) = x*y^2
+
+def ddx(x, y):
+    return y ** 2
+
+
+def ddy(x, y):
+    return 2 * x * y
+
+
+Gx = ddx(xg, yg)
+Gy = ddy(xg, yg)
 
 # Make a Color plot to display the data
-fig = plt.figure(figsize=(14,12))
+fig = plt.figure(figsize=(14, 12))
 plt.pcolor(xv, yv, z)
 plt.colorbar()
-plt.quiver(xg, yg, Gx, Gy, scale = 1000, color = 'w')
+plt.quiver(xg, yg, Gx, Gy, scale=1000, color='w')
 plt.title('Gradient of f(x,y) = xy^2')
 plt.savefig('gradient.png')
 plt.close(fig)
