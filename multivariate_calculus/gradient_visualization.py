@@ -1,9 +1,7 @@
-import sys
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-# generate 2D meshgrid
+# generate 2D mesh grid
 nx, ny = (100, 100)
 
 x = np.linspace(0, 10, nx)
@@ -34,11 +32,11 @@ plt.colorbar()
 # plt.show()
 
 
-# generate 2D meshgrid for Gradient
+# generate 2D mesh grid for Gradient
 nx, ny = (10, 10)
 x = np.linspace(0, 10, nx)
 y = np.linspace(0, 10, ny)
-xg, yg = np.meshgrid(x,y)
+xg, yg = np.meshgrid(x, y)
 
 # calculate the gradient of f(x,y)
 # Note: numpy returns answer in rows (y), columns (x) format
